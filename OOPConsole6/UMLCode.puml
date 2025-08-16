@@ -1,0 +1,49 @@
+
+@startuml
+class Course {
+    +string title
+    ~int units
+}
+
+class Student {
+    +string name
+    +Course enrolledCourse
+    +Student(string n, Course c)
+}
+
+class Teacher {
+    +string name
+    #string subject
+    +void Teach()
+}
+
+class Department {
+    +string name
+    +List<Teacher> teachers
+}
+
+class Room {
+    +string name
+}
+
+class House {
+    +string address
+    -List<Room> rooms
+    +void ShowRooms()
+}
+
+class Program {
+    +static void Main()
+}
+
+
+Student -- Course
+Department o-- Teacher
+House *-- Room
+
+Program -- Course
+Program -- Student
+Program -- Teacher
+Program -- Department
+Program -- House
+@enduml
